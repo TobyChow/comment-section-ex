@@ -1,0 +1,10 @@
+$color: blue;
+.img-test{
+  background:url('../images/desktop.svg') no-repeat center/contain;
+  border:1px solid black;
+  width:300px;
+  height:300px;
+}
+.sass{
+  color:$color;
+}
