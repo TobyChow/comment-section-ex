@@ -20,6 +20,31 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 });
 
+/*****************************************************************************
+ *
+ * BrowserSync - live reload on all devices
+ *
+ ****************************************************************************/
+
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const browserSyncPlug =   new BrowserSyncPlugin(
+      // BrowserSync options 
+      {
+        // browse to http://localhost:3000/ during development 
+        host: 'localhost',
+        port: 3000,
+        // proxy the Webpack Dev Server endpoint 
+        // (which should be serving on http://localhost:8080/) 
+        // through BrowserSync 
+        proxy: 'http://localhost:8080/' // default webpack port
+      },
+      // plugin options 
+      {
+        // prevent BrowserSync from reloading the page 
+        // and let Webpack Dev Server take care of this 
+        reload: false
+      }
+    )
 const baseConfig = {
     entry: {
       index: PATHS.js,
@@ -67,6 +92,7 @@ const baseConfig = {
     },
     plugins: [
       HtmlWebpackPluginConfig,
+      browserSyncPlug,
     ]
   }
   // export configuration
