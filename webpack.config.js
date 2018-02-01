@@ -42,7 +42,8 @@ const browserSyncPlug =   new BrowserSyncPlugin(
       {
         // prevent BrowserSync from reloading the page 
         // and let Webpack Dev Server take care of this 
-        reload: false
+        // (not working for some reason, let browsersync reload for now)
+        reload: true
       }
     )
 const baseConfig = {

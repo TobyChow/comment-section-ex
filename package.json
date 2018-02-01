@@ -2,7 +2,7 @@
   "name": "",
   "version": "",
   "scripts": {
-    "start": "webpack-dev-server --watch",
+    "start": "webpack-dev-server",
     "build": "webpack --config webpack.config.prod.js -p"
   },
   "devDependencies": {
